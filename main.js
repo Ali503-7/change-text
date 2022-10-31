@@ -18,7 +18,7 @@ let foun = {
 function setData() {
   window.localStorage.setItem("data" , JSON.stringify(foun))
 }
-
+setData()
 if (window.localStorage.getItem("data")){
   foun = JSON.parse(window.localStorage.getItem("data"))
 }
@@ -55,7 +55,6 @@ form.onchange = () => {
   setDivSize()
   setDivStyel()
 }
-
 
 
 
