@@ -22,7 +22,6 @@ function setData() {
 if (window.localStorage.getItem("data")){
   foun = JSON.parse(window.localStorage.getItem("data"))
 }
-console.log(localStorage.getItem("data").color)
 
 function setDivColor() {
   if (window.localStorage.getItem("data")) {
