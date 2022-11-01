@@ -5,60 +5,32 @@ let fontSize = document.querySelector("[name='fontSize']")
 
 let div = document.querySelector(".text")
 
-// window.localStorage.setItem("color", "red")
-// window.localStorage.setItem("fontStyle", "Roboto")
-// window.localStorage.setItem("fontSize", "16")
 
-let foun = {
-  color: `red`,
-  font: `16px`,
-  style: `Roboto`
+  
+
+
+function setColor() {
+  div.style.color = window.localStorage.getItem("color")
+  color.value = `${window.localStorage.getItem("color")}`
 }
+setColor()
 
-function setData() {
-  window.localStorage.setItem("data" , JSON.stringify(foun))
+function setStyel() {
+  div.style.fontFamily = `${window.localStorage.getItem("style")}`
+  fontStyle.value = `${window.localStorage.getItem("style")}`
 }
-setData()
-if (window.localStorage.getItem("data")){
-  foun = JSON.parse(window.localStorage.getItem("data"))
+setStyel()
+
+function setSize() {
+  div.style.fontSize = `${window.localStorage.getItem("font")}px`
+  fontSize.value = `${window.localStorage.getItem("font")}`
 }
-
-function setDivColor() {
-  if (window.localStorage.getItem("data")) {
-    foun.color = color.value
-    setData()
-    div.style.color = color.value
-  }
+setSize()
+form.onchange = () => { 
+  window.localStorage.setItem("color", color.value)
+  window.localStorage.setItem("style", fontStyle.value)
+  window.localStorage.setItem("font" , fontSize.value)
+  setColor()
+  setStyel()
+  setSize()
 }
-setDivColor()
-
-function setDivSize() {
-  if (window.localStorage.getItem("data")) {
-    div.style.fontSize = `${fontSize.value}px`
-    foun.font = fontSize.value
-    setData()
-  }
-}
-setDivSize()
-
-function setDivStyel() {
-  if (window.localStorage.getItem("data")) {
-    div.style.fontFamily = `${fontStyle.value}`
-    foun.style = fontStyle.value
-    setData()
-  }
-}
-setDivStyel()
-
-form.onchange = () => {
-  setDivColor()
-  setDivSize()
-  setDivStyel()
-}
-
-
-
-// window.localStorage.setItem("styleAll", JSON.stringify(foun))
-
-
-// newb = JSON.parse(window.localStorage.getItem("styleAll"))
